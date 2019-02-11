@@ -13,11 +13,11 @@ const RoomSchema = new Schema({
   },
   floor: {
     type: Number,
-    unique: true
+    unique: false
   },
   capacity: {
     type: Number,
-    unique: true
+    unique: false
   },
   assets: {
     macLab: {type: Boolean, default: false},
