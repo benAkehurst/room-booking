@@ -7,6 +7,10 @@ const RoomSchema = new Schema({
     type: String,
     required: true
   },
+  image: {
+    type: String,
+    required: true
+  },
   floor: {
     type: Number,
     unique: true
@@ -17,7 +21,7 @@ const RoomSchema = new Schema({
   },
   assets: {
     macLab: {type: Boolean, default: false},
-    pcLab: {type: Boolean, default: false},
+    teleconfrence: {type: Boolean, default: false},
     projector: {type: Boolean, default: false},
     tv: {type: Boolean, default: false},
     whiteboard: {type: Boolean, default: false},
