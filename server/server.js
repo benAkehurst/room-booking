@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const User = require('./api/models/userModel');
+const Room = require('./api/models/roomModel');
+const Booking = require('./api/models/bookingModel');
 
 const app = express();
 
@@ -29,8 +31,10 @@ app.use(cors());
 
 const userRoutes = require('./api/routes/userRoutes');
 const authRoutes = require('./api/routes/authRoutes');
+const roomRoutes = require('./api/routes/roomRoutes');
 userRoutes(app);
 authRoutes(app);
+roomRoutes(app);
 
 app.use((req, res) => {
   res.status(404).send({url: req.originalUrl + ' not found'});
