@@ -7,6 +7,7 @@ module.exports = function (app) {
    */
   app.route('/api/rooms')
     .get(roomController.get_all_rooms);
+  // .post(roomController.create_room)
 
   /**
    * Individual Room Routes
@@ -16,7 +17,8 @@ module.exports = function (app) {
 
   app.route('/api/room/book/:roomId')
     .post(roomController.book_a_room)
-  
+
   app.route('/api/room/cancel/:roomId')
     .post(roomController.cancel_a_booking);
+
 };

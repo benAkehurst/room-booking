@@ -1,7 +1,5 @@
 'use strict';
 const mongoose = require('mongoose');
-const async = rewuire('async');
-const User = mongoose.model('User');
 const Room = mongoose.model('Room');
 const Booking = mongoose.model('Booking');
 
@@ -51,13 +49,20 @@ exports.get_single_room = (req, res) => {
  */
 exports.book_a_room = (req, res) => {
   const roomId = req.params.roomId;
-  const bookingData = req.body.data.bookingData;
+  const newBooking = new Booking({
+    user: req.body.userId,
+    bookingStart: req.body.bookingStart,
+    bookingEnd: req.body.bookingEnd,
+    startHour: req.body.startHour,
+    duration: req.body.duration,
+    purpose: req.body.purpose
+  });
 
   Room.findByIdAndUpdate({
       _id: roomId
     }, {
       $push: {
-        bookings: bookingData
+        bookings: newBooking
       }
     },
     (err, room) => {
@@ -106,4 +111,32 @@ exports.cancel_a_booking = (req, res) => {
         code: 200
       });
     });
-  };
+};
+
+
+/**
+ * This function can be enabled to populate the DB with the roomsSeed.json data
+ */
+// exports.create_room = (req,res) => {
+//   console.log(req.body);
+//   const newRoom = new Room({
+//     name: req.body.name,
+//     image: req.body.image,
+//     floor: req.body.floor,
+//     capacity: req.body.capacity,
+//     assets: req.body.assets,
+//     bookings: req.body.bookings
+//   });
+//   newRoom.save((err, room) => {
+//     if (err) {
+//       res.send({
+//         error: err
+//       });
+//     }
+//     res.send({
+//       message: 'Room created',
+//       success: true,
+//       obj: room
+//     });
+//   });
+// }
