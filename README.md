@@ -37,3 +37,8 @@ In the client terminal, cd into the `room-booking` folder and run `ng serve` and
 ## Authors
 
 * **Ben Akehurst** - [benAkehurst](https://github.com/benAkehurst)
+
+## Credits
+
+* **[txwkx](https://github.com/txwkx/book-room)** - for the room images
+* **[julia-](https://github.com/julia-/room-booking-system)** - for room model inspiration
