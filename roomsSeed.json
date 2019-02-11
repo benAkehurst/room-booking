@@ -1,0 +1,85 @@
+[{
+    "name": "The Den",
+    "image": "https://s3.eu-west-2.amazonaws.com/book-room-platform/airbnb.jpg",
+    "floor": 2,
+    "capacity": 6,
+    "assets": {
+      "macLab": false,
+      "teleconfrence": false,
+      "projector": false,
+      "tv": true,
+      "whiteboard": false
+    },
+    "bookings": []
+  },
+  {
+    "name": "Hangning Table",
+    "image": "https://s3.eu-west-2.amazonaws.com/book-room-platform/autodesk.jpg",
+    "floor": 2,
+    "capacity": 6,
+    "assets": {
+      "macLab": false,
+      "teleconfrence": false,
+      "projector": true,
+      "tv": false,
+      "whiteboard": false
+    },
+    "bookings": []
+  },
+  {
+    "name": "Icecube",
+    "image": "https://s3.eu-west-2.amazonaws.com/book-room-platform/pinterest.jpg",
+    "floor": 3,
+    "capacity": 7,
+    "assets": {
+      "macLab": true,
+      "teleconfrence": false,
+      "projector": false,
+      "tv": true,
+      "whiteboard": false
+    },
+    "bookings": []
+  },
+  {
+    "name": "Dining Room",
+    "image": "https://s3.eu-west-2.amazonaws.com/book-room-platform/wework.jpg",
+    "floor": 3,
+    "capacity": 8,
+    "assets": {
+      "macLab": true,
+      "teleconfrence": true,
+      "projector": false,
+      "tv": true,
+      "whiteboard": true
+    },
+    "bookings": []
+  },
+  {
+    "name": "The Corner",
+    "image": "https://s3.eu-west-2.amazonaws.com/book-room-platform/zendesk.jpg",
+    "floor": 2,
+    "capacity": 6,
+    "assets": {
+      "macLab": false,
+      "teleconfrence": false,
+      "projector": false,
+      "tv": true,
+      "whiteboard": true
+    },
+    "bookings": []
+  },
+  {
+    "name": "Oasis",
+    "image": "https://s3.eu-west-2.amazonaws.com/book-room-platform/skyscanner.jpg",
+    "floor": 1,
+    "capacity": 10,
+    "assets": {
+      "macLab": true,
+      "teleconfrence": true,
+      "projector": false,
+      "tv": true,
+      "whiteboard": false
+    },
+    "bookings": []
+  }
+]
