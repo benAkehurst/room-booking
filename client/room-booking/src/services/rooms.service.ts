@@ -6,4 +6,9 @@ import { Injectable } from '@angular/core';
 export class RoomsService {
 
   constructor() { }
+
+/**
+ * THIS WILL DEAL WITH TALKING TO THE API TO CALL ROOMS ACTIONS - FETCH ALL/FETCH SINGLE ROOM
+ */
+
 }
