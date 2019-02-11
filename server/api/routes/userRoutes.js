@@ -7,8 +7,7 @@ module.exports = function (app) {
    */
   app.route('/api/user')
   .get(userController.get_all_users)
-  .post(userController.create_a_user)
-  .post(userController.login_a_user);
+  .post(userController.create_a_user);
 
   /**
    * Individual User Routes
