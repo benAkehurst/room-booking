@@ -27,7 +27,8 @@ import { MyBookingsComponent } from './components/my-bookings/my-bookings.compon
     HttpModule,
     FormsModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
