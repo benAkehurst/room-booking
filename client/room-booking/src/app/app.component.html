@@ -1,3 +1,24 @@
-<div class="page-cointainer">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <ul>
+      <li>Home</li>
+      <li>My Bookings</li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="page-cointainer">
+      <header class="header-container">
+        <mat-toolbar>
+          <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+          <p>Room Bookin</p>
+        </mat-toolbar>
+      </header>
+      <main class="router-outlet-containter">
+        <router-outlet></router-outlet>
+      </main>
+      <footer class="footer-container">
+        <mat-toolbar>Footer</mat-toolbar>
+      </footer>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -8,8 +8,6 @@ import { RoomsService } from 'src/services/rooms.service';
 })
 export class HomeComponent implements OnInit {
 
-  opened: Boolean;
-
   constructor(
     private rs: RoomsService
   ) { }
