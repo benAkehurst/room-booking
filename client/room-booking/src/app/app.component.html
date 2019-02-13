@@ -1,16 +1,26 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <ul>
-      <li>Home</li>
-      <li>My Bookings</li>
+      <li (click)="goHome()">Home</li>
+      <li (click)="goToMyBookings()">My Bookings</li>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="page-cointainer">
       <header class="header-container">
         <mat-toolbar color="primary">
-          <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">menu</i></button></p>
-          <p>Room Booking</p>
+          <div class="header-items-container">
+            <div class="menu-button">
+              <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">menu</i></button></p>
+            </div>
+            <div class="page-title">
+              <p>Room Booking</p>
+            </div>
+            <div class="login-register-options">
+              <div class="login-link" *ngIf="showLoginLink">Login</div>
+              <div class="register-link" *ngIf="showRegisterLink">Register</div>
+            </div>
+          </div>
         </mat-toolbar>
       </header>
       <main class="router-outlet-containter">

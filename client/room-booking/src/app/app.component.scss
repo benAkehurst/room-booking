@@ -21,3 +21,8 @@ mat-toolbar-row {
   right: 20px;
   color: white;
 }
+
+.header-items-container {
+  display: flex;
+  flex-direction: row;
+}
