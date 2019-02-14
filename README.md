@@ -5,20 +5,28 @@ The app allows users to book meeting rooms, and an admin can view and control th
 ### Prerequisites
 
 ```
-Node
+nodejs
 npm
 Angualr CLI
 ```
 
 ## Server
 * Built upon my [nodejs boilerplate project](https://github.com/benAkehurst/nodejs-api-server).
-* [MongoDB](https://www.mongodb.com/) - The NoSQL Database
-* [Express](https://expressjs.com/) - Node Framework
+* [MongoDB](https://www.mongodb.com/) - NoSQL Database
+* [Express](https://expressjs.com/) - Nodejs Framework
 * [Nodejs](https://nodejs.org/en/) - The Server
 
 ## Client
 * [Angular](https://angular.io/)
 * [Angular Material](https://material.angular.io/)
+
+## Deployment
+* [Heroku](https://www.heroku.com/) - Cloud platform hosting the API server
+* [MongoLab](https://mlab.com/) - Cloud NoSQL Database
+* [Amazon S3](https://aws.amazon.com/s3/) - Hosting the SPA Client app
+
+### Demo App
+Coming soon...
 
 ### Installing
 
