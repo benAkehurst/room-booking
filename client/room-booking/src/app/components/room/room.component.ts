@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomsService } from 'src/services/rooms.service';
 
 @Component({
   selector: 'app-room',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomComponent implements OnInit {
 
-  constructor() { }
+  room: any;
+
+  constructor(
+    private rs: RoomsService
+  ) { }
 
   ngOnInit() {
+    this.fetchRoomFromRoomService();
+  }
+
+  public fetchRoomFromRoomService() {
+    this.room = this.rs.chosenRoom;
+    console.log(this.room);
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="rooms-cards-wrapper">
 
-  <mat-card *ngFor="let room of allRooms">
+<mat-card *ngFor="let room of allRooms" (click)="fetchSingleRoom(room._id)">
     <h3>{{room.name}}</h3>
     <button mat-raised-button color="primary">View Room</button>
   </mat-card>

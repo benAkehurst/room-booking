@@ -11,6 +11,8 @@ export class RoomsService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private baseUrl: String = 'http://localhost:3000';
 
+  chosenRoom: any;
+
   constructor(
     private http: Http
   ) { }
@@ -29,6 +31,10 @@ export class RoomsService {
     return this.http
       .get(this.baseUrl + '/api/room/' + roomId)
       .pipe(map((response: any) => response.json()));
+  }
+
+  public clearChosenRoomVariable() {
+    this.chosenRoom = null;
   }
 
 }
