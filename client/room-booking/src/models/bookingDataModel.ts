@@ -1,10 +1,12 @@
+import UserDataModel from './userDataModel';
+
 class BookingDataModel {
-  _id: string;
-  name: String = '';
-  email: String = '';
-  password: String = '';
-  image: String = '';
-  createdAntiques: [] = [];
+  user: UserDataModel;
+  bookingStart: Date;
+  bookingEnd: Date;
+  startHour: Number;
+  duration: Number;
+  purpose: String;
 }
 
 export default BookingDataModel;

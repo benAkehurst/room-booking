@@ -15,6 +15,9 @@ const UserSchema = new Schema({
     type: String,
     unique: true
   },
+  bookings_history: {
+    type: Array
+  },
   created_date: {
     type: Date,
     default: Date.now
@@ -22,7 +25,7 @@ const UserSchema = new Schema({
   status: {
     type: [{
       type: String,
-      enum: ['pending', 'aproved', 'deleted']
+      enum: ['pending', 'aproved', 'deleted', 'admin']
     }],
     default: ['aproved']
   }

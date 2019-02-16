@@ -3,8 +3,7 @@ class UserDataModel {
   name: String = '';
   email: String = '';
   password: String = '';
-  image: String = '';
-  createdAntiques: [] = [];
+  bookingsHistory: [] = [];
 }
 
 export default UserDataModel;
