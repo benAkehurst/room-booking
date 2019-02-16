@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
     this.fetchAllRoomsFromDB();
   }
 
+  /**
+   * Gets all the rooms from the DB
+   */
   public fetchAllRoomsFromDB() {
     this.rs.getAllRooms().subscribe((allRooms) => {
       if (allRooms.code === 204) {
@@ -38,6 +41,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /**
+   * Fetchs a single room from the db and upon success, navigates to that room
+   */
   public fetchSingleRoom(roomId) {
     this.rs.getSingleRoom(roomId).subscribe((room) => {
       if (room.code === 400) {

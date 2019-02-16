@@ -33,6 +33,9 @@ export class RoomsService {
       .pipe(map((response: any) => response.json()));
   }
 
+  /**
+   * Clears the local variable that hold the chosen room
+   */
   public clearChosenRoomVariable() {
     this.chosenRoom = null;
   }

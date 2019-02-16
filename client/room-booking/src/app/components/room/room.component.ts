@@ -18,6 +18,9 @@ export class RoomComponent implements OnInit {
     this.fetchRoomFromRoomService();
   }
 
+  /**
+   * Fetchs the chosen room from the Room Service
+   */
   public fetchRoomFromRoomService() {
     this.room = this.rs.chosenRoom;
     console.log(this.room);
