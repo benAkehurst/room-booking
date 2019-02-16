@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
+import { RoomsService } from 'src/services/rooms.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private user: UserService
+    private user: UserService,
+    private rs: RoomsService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class AppComponent implements OnInit {
 
   public goHome() {
     this.router.navigateByUrl('home');
+    this.rs.clearChosenRoomVariable();
   }
 
   public goToMyBookings() {
