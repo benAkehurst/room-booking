@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class RoomsService {
 
+  private headers = new Headers({ 'Content-Type': 'application/json' });
   private baseUrl: String = 'http://localhost:3000';
 
   constructor(
@@ -15,11 +16,19 @@ export class RoomsService {
   ) { }
 
   /**
-   * THIS WILL DEAL WITH TALKING TO THE API TO CALL ROOMS ACTIONS - FETCH ALL/FETCH SINGLE ROOM
+   * Gets all the rooms in the DB
    */
-
   public getAllRooms() {
     return this.http.get(this.baseUrl + '/api/rooms').pipe(map((response: any) => response.json()));
+  }
+
+  /**
+   * Gets a single room from the DB using the Room ID as a paramater
+   */
+  public getSingleRoom(roomId) {
+    return this.http
+      .get(this.baseUrl + '/api/room/' + roomId)
+      .pipe(map((response: any) => response.json()));
   }
 
 }
