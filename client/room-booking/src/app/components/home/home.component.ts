@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RoomsService } from 'src/services/rooms.service';
 
 import Swal from 'sweetalert2';
@@ -13,16 +14,17 @@ export class HomeComponent implements OnInit {
   allRooms: any = [];
 
   constructor(
+    private router: Router,
     private rs: RoomsService
   ) { }
 
   ngOnInit() {
-    this.test();
+    this.fetchAllRoomsFromDB();
   }
 
-  public test() {
-    this.rs.getAllRooms().subscribe((result) => {
-      if (result.code === 204) {
+  public fetchAllRoomsFromDB() {
+    this.rs.getAllRooms().subscribe((allRooms) => {
+      if (allRooms.code === 204) {
         this.openSwal(
           'Error Receiving Rooms',
           'There was a problem fetching the rooms',
@@ -30,9 +32,25 @@ export class HomeComponent implements OnInit {
           'Ok...'
         );
       } else {
-        this.allRooms = result.data;
+        this.allRooms = allRooms.data;
       }
       console.log(this.allRooms);
+    });
+  }
+
+  public fetchSingleRoom(roomId) {
+    this.rs.getSingleRoom(roomId).subscribe((room) => {
+      if (room.code === 400) {
+        this.openSwal(
+          'Error Receiving Room',
+          'There was a problem fetching the room',
+          'error',
+          'Ok...'
+        );
+      } else {
+        this.rs.chosenRoom = room;
+        this.router.navigateByUrl('room');
+      }
     });
   }
 
