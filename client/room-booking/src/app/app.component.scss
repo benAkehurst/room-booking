@@ -25,4 +25,17 @@ mat-toolbar-row {
 .header-items-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.page-title {
+  padding: 2rem;
+}
+
+.login-register-options {
+  margin-left: auto;
 }

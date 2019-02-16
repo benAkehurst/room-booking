@@ -13,12 +13,13 @@
             <div class="menu-button">
               <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">menu</i></button></p>
             </div>
-            <div class="page-title">
+            <div class="page-title" (click)="goHome()">
               <p>Room Booking</p>
             </div>
+            <span class="spacer"></span>
             <div class="login-register-options">
-              <div class="login-link" *ngIf="showLoginLink">Login</div>
-              <div class="register-link" *ngIf="showRegisterLink">Register</div>
+              <div class="login-link" *ngIf="showLoginLink" (click)="goToLogin()">Login</div>
+              <div class="register-link" *ngIf="showRegisterLink" (click)="goToRegister()">Register</div>
             </div>
           </div>
         </mat-toolbar>
