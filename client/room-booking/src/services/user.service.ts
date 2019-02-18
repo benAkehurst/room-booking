@@ -61,7 +61,7 @@ export class UserService {
   }
 
   /**
-   * Clears all the local storage items. Used when the user logs out. 
+   * Clears all the local storage items. Used when the user logs out.
    */
   public clearLocalStorage() {
     localStorage.clear();

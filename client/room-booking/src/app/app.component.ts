@@ -63,4 +63,10 @@ export class AppComponent implements OnInit {
   public goToRegister() {
     this.router.navigateByUrl('register');
   }
+
+  public goToAdminPage() {
+    if (this.user.checkIfUserAdmin() === true) {
+      this.router.navigateByUrl('admin');
+    }
+  }
 }
