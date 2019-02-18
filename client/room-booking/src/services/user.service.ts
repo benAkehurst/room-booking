@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import UserDataModel from '../models/userDataModel';
 import { CryptoService } from './crypto.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,46 +21,74 @@ export class UserService {
     this.User = new UserDataModel();
   }
 
-  public encryptUserId(userId) {
-    this.crypto.encryptData(userId)
-      .then(
-        localStorage.setItem('id', userId)
-      )
-      .catch(
-        console.log('error')
-      );
-  }
-
-  public decryptUserId(userId) {
-    this.crypto.decryptData(userId)
-      .then(
-        this.decryptedUserId = userId
-      )
-      .catch(
-        console.log('error')
-      );
+  /**
+  * Registers a new user
+  */
+  public registerUser() {
+    return this.http
+      .post(this.baseUrl + '/api/register', { data: this.User }, { headers: this.headers })
+      .pipe(map((response: any) => response.json()));
   }
 
   /**
-   * Returns true if a user ID exits in local storage
-   */
-  public checkUserLoggedInStatus() {
-    if (this.getUserId()) {
-      return true;
-    }
+  * Logins a user
+  */
+  public loginUser() {
+    return this.http
+      .post(this.baseUrl + '/api/login', { data: this.User }, { headers: this.headers })
+      .pipe(map((response: any) => {
+        response.json();
+        this.encryptUserId(response.data._id);
+      }));
   }
 
-  public checkIfUserAdmin() {
-
+  /**
+   * Gets user profile data from the server
+   */
+  public getUserProfile() {
+    const userId = this.getUserId();
+    return this.http
+      .get(this.baseUrl + '/api/user/' + userId, { headers: this.headers })
+      .pipe(map((response: any) => response.json()));
   }
 
   /**
    * Checks local storage if a user ID exists in local storage
    */
   public getUserId() {
-    const userId = localStorage.getItem('id');
+    return this.decryptUserId();
+  }
+
+  /**
+   * Encrypts the user ID client side
+   */
+  public encryptUserId(userId) {
+    localStorage.setItem('id', this.crypto.encryptData(userId)); 
+  }
+
+  /**
+   * Decrypts the user ID client side
+   */
+  public decryptUserId() {
+    const ecryptedId = localStorage.getItem('id');
+    return this.crypto.decryptData(ecryptedId);
+    
+    
+  }
+
+  /**
+   * Returns true if a user ID exits in local storage
+   */
+  public checkUserLoggedInStatus() {
     if (this.decryptUserId != null) {
       return this.decryptUserId;
+    }
+  }
+
+  public checkIfUserAdmin() {
+    const adminStatus = localStorage.getItem('isAdmin');
+    if (adminStatus === true) {
+      return true;
     }
   }
 }
