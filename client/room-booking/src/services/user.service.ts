@@ -38,7 +38,7 @@ export class UserService {
       .post(this.baseUrl + '/api/login', { data: this.User }, { headers: this.headers })
       .pipe(map((response: any) => {
         response.json();
-        this.encryptUserId(response.data._id);
+        // TODO: CALL FUNCTION HERE TO SET LOGIN ITEM IN LOCAL STORAGE
       }));
   }
 
@@ -53,27 +53,25 @@ export class UserService {
   }
 
   /**
+   * Sets the login item when the user logs in
+   */
+  public setLoginObject(userId, userType) {
+    this.encryptUserId(userId);
+    this.setUserType(userType);
+  }
+
+  /**
+   * Clears all the local storage items. Used when the user logs out. 
+   */
+  public clearLocalStorage() {
+    localStorage.clear();
+  }
+
+  /**
    * Checks local storage if a user ID exists in local storage
    */
   public getUserId() {
     return this.decryptUserId();
-  }
-
-  /**
-   * Encrypts the user ID client side
-   */
-  public encryptUserId(userId) {
-    localStorage.setItem('id', this.crypto.encryptData(userId)); 
-  }
-
-  /**
-   * Decrypts the user ID client side
-   */
-  public decryptUserId() {
-    const ecryptedId = localStorage.getItem('id');
-    return this.crypto.decryptData(ecryptedId);
-    
-    
   }
 
   /**
@@ -85,10 +83,35 @@ export class UserService {
     }
   }
 
+  /**
+   * Checks if the user is an admin
+   */
   public checkIfUserAdmin() {
     const adminStatus = localStorage.getItem('isAdmin');
-    if (adminStatus === true) {
+    const adminStatusString = JSON.parse(adminStatus);
+    if (adminStatusString === 'true') {
       return true;
+    } else {
+      return false;
     }
+  }
+
+  public setUserType(userType) {
+    localStorage.setItem('isAdmin', userType);
+  }
+
+   /**
+   * Encrypts the user ID client side
+   */
+  public encryptUserId(userId) {
+    localStorage.setItem('id', this.crypto.encryptData(userId));
+  }
+
+  /**
+   * Decrypts the user ID client side
+   */
+  public decryptUserId() {
+    const ecryptedId = localStorage.getItem('id');
+    return this.crypto.decryptData(ecryptedId);
   }
 }
