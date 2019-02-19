@@ -57,7 +57,10 @@ export class RegisterComponent implements OnInit {
       password: this.password
     };
 
-    this.us.registerUser(regObj).subscribe(() =>
+    this.us.registerUser(regObj).subscribe((response) => {
+      const res = response;
+      this.us.setLoginObject(res.obj._id, res.obj.status[0]);
+    },
       error => {
         this.errors = error;
         this.openSwal('Error', 'Sorrt about that, please try agian.');

@@ -27,10 +27,11 @@ exports.get_all_users = (req, res) => {
  * Creates a new user in the DB
  */
 exports.create_a_user = (req, res) => {
+  var data = req.body.data;
   var newUser = new User({
-    name: req.body.data.name,
-    email: req.body.data.email,
-    password: bcrypt.hashSync(req.body.data.password, 10)
+    name: data.name,
+    email: data.email,
+    password: bcrypt.hashSync(data.password, 10)
   });
   newUser.save((err, user) => {
     if (err) {

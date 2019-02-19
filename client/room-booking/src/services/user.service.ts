@@ -99,7 +99,11 @@ export class UserService {
   }
 
   public setUserType(userType) {
-    localStorage.setItem('isAdmin', userType);
+    if (userType === 'Admin') {
+      localStorage.setItem('isAdmin', 'true');
+    } else {
+      localStorage.setItem('isAdmin', 'false');
+    }
   }
 
    /**
