@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   opened: Boolean;
   showLoginLink: Boolean = false;
   showRegisterLink: Boolean = true;
+  isAdmin: Boolean = false;
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.checkUserState();
+    this.checkIfUserAdmin();
   }
 
   /**
@@ -28,9 +30,19 @@ export class AppComponent implements OnInit {
    */
   public checkUserState() {
     const status = this.user.checkUserLoggedInStatus();
-    if (status === true) {
+    if (!status) {
       this.showLoginLink = false;
       this.showRegisterLink = true;
+    }
+  }
+
+  /**
+   * Checks on the user service if the user is a site admin
+   */
+  public checkIfUserAdmin() {
+    const admin = this.user.checkIfUserAdmin();
+    if (admin === true) {
+      this.isAdmin = true;
     }
   }
 

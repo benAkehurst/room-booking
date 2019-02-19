@@ -1,25 +1,23 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway');
 
-body {
-  margin: 0;
-  font-family: Roboto, sans-serif;
+$Lato: 'Lato',
+sans-serif;
+$Montserrat: 'Montserrat',
+sans-serif;
+$Raleway: 'Raleway',
+sans-serif;
+
+.sidenav-link {
+    width: 200px;
+    height: 35px;
+    margin: 20px 0 20px 0;
+    padding: 5px;
 }
 
-mat-card {
-  max-width: 80%;
-  margin: 2em auto;
-  text-align: center;
-}
-
-mat-toolbar-row {
-  justify-content: space-between;
-}
-
-.done {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: white;
+.single-button {
+  font-family: $Raleway;
+  font-size: 24px;
 }
 
 .header-items-container {
