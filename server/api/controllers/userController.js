@@ -53,7 +53,7 @@ exports.create_a_user = (req, res) => {
  * Function to login a user
  */
 exports.login_a_user = (req, res) => {
-  var data = req.body;
+  let data = req.body.data;
   User.findOne({
     email: data.email
   }, function (err, user) {

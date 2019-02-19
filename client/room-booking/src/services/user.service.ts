@@ -39,8 +39,8 @@ export class UserService {
     return this.http
       .post(this.baseUrl + 'api/login', { data: this.User }, { headers: this.headers })
       .pipe(map((response: any) => {
-        response.json();
-        // TODO: CALL FUNCTION HERE TO SET LOGIN ITEM IN LOCAL STORAGE
+        const res = response.json();
+        this.setLoginObject(res.obj._id, res.obj.status[0]);
       }));
   }
 

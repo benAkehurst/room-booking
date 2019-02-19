@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     };
     console.log(loginObj);
     this.us.loginUser(loginObj).subscribe((response) => {
-      console.log(response);
     },
       error => {
         this.errors = error;
