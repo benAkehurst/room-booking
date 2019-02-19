@@ -26,16 +26,17 @@ export class UserService {
   */
   public registerUser() {
     return this.http
-      .post(this.baseUrl + '/api/register', { data: this.User }, { headers: this.headers })
+      .post(this.baseUrl + 'api/register', { data: this.User }, { headers: this.headers })
       .pipe(map((response: any) => response.json()));
   }
 
   /**
   * Logins a user
   */
-  public loginUser() {
+  public loginUser(userDetails) {
+    this.User = userDetails;
     return this.http
-      .post(this.baseUrl + '/api/login', { data: this.User }, { headers: this.headers })
+      .post(this.baseUrl + 'api/login', { data: this.User }, { headers: this.headers })
       .pipe(map((response: any) => {
         response.json();
         // TODO: CALL FUNCTION HERE TO SET LOGIN ITEM IN LOCAL STORAGE
@@ -48,7 +49,7 @@ export class UserService {
   public getUserProfile() {
     const userId = this.getUserId();
     return this.http
-      .get(this.baseUrl + '/api/user/' + userId, { headers: this.headers })
+      .get(this.baseUrl + 'api/user/' + userId, { headers: this.headers })
       .pipe(map((response: any) => response.json()));
   }
 
