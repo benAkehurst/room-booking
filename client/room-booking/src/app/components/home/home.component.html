@@ -1,8 +1,27 @@
-<div class="rooms-cards-wrapper">
-
-<mat-card *ngFor="let room of allRooms" (click)="fetchSingleRoom(room._id)">
-    <h3>{{room.name}}</h3>
-    <button mat-raised-button color="primary">View Room</button>
-  </mat-card>
-
+<div class="page-wrapper">
+  <div class="page-title-contianer">
+    <h2 class="page-title-text">Avaliable Rooms</h2>
+  </div>
+  <div class="rooms-container">
+    <div class="wrapper">
+      <mat-card class="single-room-card" *ngFor="let room of allRooms">
+        <!-- <div class="avaliable-now-indicator">
+          <div class="avaliable-color" [ngClass]="{'.not-avaliable': roomBookedNow}"></div>
+        </div> -->
+        <mat-card-title>{{room.name}}</mat-card-title>
+        <mat-card-content>
+          <p class="room-info-text">Location: Floor {{room.floor}}</p>
+          <p class="room-info-text">Capacity: {{room.capacity}}</p>
+        </mat-card-content>
+        <img mat-card-image src="{{room.image}}">
+        <mat-card-actions>
+          <button mat-raised-button 
+                  color="primary" 
+                  (click)="fetchSingleRoom(room._id)">
+                  View Room
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
