@@ -24,7 +24,8 @@ export class UserService {
   /**
   * Registers a new user
   */
-  public registerUser() {
+  public registerUser(regObj) {
+    this.User = regObj;
     return this.http
       .post(this.baseUrl + 'api/register', { data: this.User }, { headers: this.headers })
       .pipe(map((response: any) => response.json()));
