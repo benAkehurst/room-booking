@@ -1,10 +1,14 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    <ul>
-      <li (click)="goHome()">Home</li>
-      <li (click)="goToMyBookings()">My Bookings</li>
-      <li (click)="goToAdminPage()">Admin Panel</li>
-    </ul>
+    <div class="sidenav-link">
+      <button class="single-button" mat-raised-button color="primary"  (click)="goHome()">Home</button>
+    </div>
+    <div class="sidenav-link">
+      <button class="single-button" mat-raised-button color="primary"  (click)="goToMyBookings()">My Bookings</button>
+    </div>
+    <div class="sidenav-link" *ngIf="isAdmin">
+      <button class="single-button" mat-raised-button color="primary"  (click)="goToAdminPage()">Admin Panel</button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="page-cointainer">
