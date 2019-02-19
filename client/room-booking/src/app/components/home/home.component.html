@@ -5,9 +5,9 @@
   <div class="rooms-container">
     <div class="wrapper">
       <mat-card class="single-room-card" *ngFor="let room of allRooms">
-        <div class="avaliable-now-indicator">
+        <!-- <div class="avaliable-now-indicator">
           <div class="avaliable-color" [ngClass]="{'.not-avaliable': roomBookedNow}"></div>
-        </div>
+        </div> -->
         <mat-card-title>{{room.name}}</mat-card-title>
         <mat-card-content>
           <p class="room-info-text">Location: Floor {{room.floor}}</p>
