@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RoomsService } from 'src/services/rooms.service';
 import { Router } from '@angular/router';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -15,6 +17,7 @@ export class RoomComponent implements OnInit {
   teleconfrence: Boolean = false;
   tv: Boolean = false;
   whiteboard: Boolean = false;
+  inUse: Boolean = false;
 
   constructor(
     private router: Router,
@@ -23,6 +26,7 @@ export class RoomComponent implements OnInit {
 
   ngOnInit() {
     this.fetchRoomFromRoomService();
+    this.isInUseNow();
   }
 
   /**
@@ -44,6 +48,17 @@ export class RoomComponent implements OnInit {
     this.teleconfrence = this.room.assets.teleconfrence;
     this.tv = this.room.assets.tv;
     this.whiteboard = this.room.assets.whiteboard;
+  }
+
+  public isInUseNow() {
+    const currentDate = moment().format('DD-MM-YYYY');
+    console.log(currentDate);
+    this.room.bookings.forEach(element => {
+      console.log(currentDate);
+      if (element.bookingStart === currentDate && element.startHour) {
+        console.log(element);
+      }
+    });
   }
 
   /**

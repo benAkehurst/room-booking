@@ -1,49 +1,62 @@
 <div class="page-contianer" *ngIf="room != undefined">
-  <div *ngIf="!room">
-    <h2>Oops... Something went wrong.</h2>
-    <h3 (click)="goToHome()">Click here to go back.</h3>
-  </div>
   <h2>{{room.name}}</h2>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile>
-      <mat-card>
-        <img mat-card-image src={{room.image}}>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-card>
+  <div class="container">
+    <div class="box">
+      <div class="room-image">
+        <mat-card>
+          <img mat-card-image src={{room.image}}>
+        </mat-card>
+      </div>
+    </div>
+    <div class="box">
+      <div class="room-avaliablity">
         <mat-card-title>
           Avaliabity Calendar:
         </mat-card-title>
         <mat-card-content>
-          
+          This is where the calendar element will be
         </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-card>
-        <mat-card-title>
-          Room Details:
-        </mat-card-title>
-        <mat-card-content>
-          <mat-list role="list">
-            <mat-list-item role="listitem">Floor: {{room.floor}}</mat-list-item>
-            <mat-list-item role="listitem">Capacity: {{room.capacity}}</mat-list-item>
-            <mat-list-item role="listitem">Mac Computer: <span *ngIf="macLab">✅</span><span *ngIf="!macLab">❌</span></mat-list-item>
-            <mat-list-item role="listitem">Projector: <span *ngIf="projector">✅</span><span *ngIf="!projector">❌</span></mat-list-item>
-            <mat-list-item role="listitem">Television: <span *ngIf="tv">✅</span><span *ngIf="!tv">❌</span></mat-list-item>
-            <mat-list-item role="listitem">Whiteboard: <span *ngIf="whiteboard">✅</span><span *ngIf="!whiteboard">❌</span></mat-list-item>
-            <mat-list-item role="listitem">Teleconfrence: <span *ngIf="teleconfrence">✅</span><span *ngIf="!teleconfrence">❌</span></mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-card>
-        <mat-card-title>
-          Booking Info:
-        </mat-card-title>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+      </div>
+    </div>
+    <div class="box">
+      <div class="room-facilities">
+        <mat-card>
+          <mat-card-title>
+            Room Details:
+          </mat-card-title>
+          <mat-card-content>
+            <mat-list role="list">
+              <mat-list-item role="listitem">Floor: {{room.floor}}</mat-list-item>
+              <mat-list-item role="listitem">Capacity: {{room.capacity}}</mat-list-item>
+              <mat-list-item role="listitem">Mac Computer: <span *ngIf="macLab"> ✅</span><span *ngIf="!macLab"> ❌</span></mat-list-item>
+              <mat-list-item role="listitem">Projector: <span *ngIf="projector"> ✅</span><span *ngIf="!projector"> ❌</span></mat-list-item>
+              <mat-list-item role="listitem">Television: <span *ngIf="tv"> ✅</span><span *ngIf="!tv"> ❌</span></mat-list-item>
+              <mat-list-item role="listitem">Whiteboard: <span *ngIf="whiteboard"> ✅</span><span *ngIf="!whiteboard"> ❌</span></mat-list-item>
+              <mat-list-item role="listitem">Teleconfrence: <span *ngIf="teleconfrence"> ✅</span><span *ngIf="!teleconfrence">
+                  ❌</span></mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="box">
+      <div class="room-booking">
+        <mat-card>
+          <mat-card-title>
+            Booking Info:
+          </mat-card-title>
+          <mat-card-content>
+            <div>Is the room currently in use? <span *ngIf="inUse"> ✅</span><span *ngIf="!inUse"> ❌</span></div>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Book Room</button>
+            <button mat-raised-button color="alert">Cancel Booking</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
