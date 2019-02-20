@@ -1,0 +1,12 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway');
+
+$Lato: 'Lato', sans-serif;
+$Montserrat: 'Montserrat', sans-serif;
+$Raleway: 'Raleway', sans-serif;
+
+.page-contianer {
+  padding: 10px;
+  font-family: $Raleway;
+  height: 100vh;
+}
